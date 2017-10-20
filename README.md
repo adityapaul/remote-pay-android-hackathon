@@ -72,7 +72,7 @@ options:
         i.  include ':remote-pay-android-connector', ':reader', ':data',
             ':domain', ':roam', ':clover-android-sdk',
             ':clover-remote-interface',
-            ':&lt;***your\_app\_module\_here***&gt;'
+            ':<your\_app\_module\_here>'
 
     e.  In your project’s build.gradle file under buildscript, make the
         following changes
