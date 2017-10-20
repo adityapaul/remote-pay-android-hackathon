@@ -1,6 +1,6 @@
 # Clover Universal SDK 
 ## Overview
-The Clover Universal Android SDK enables your custom mobile point-of-sale (POS) to accept card present transactions by connecting to EMV compliant Clover Go Card Readers.
+The Clover Universal Android SDK enables your custom mobile point-of-sale (POS) system to accept card present transactions by connecting to EMV compliant Clover Go Card Readers.
 
 Clover Go supports two types of card readers; a magnetic stripe, EMV chip-and-signature card reader and an all-in-one card reader that supports Swipe, EMV Dip, and NFC Contactless payments. The SDK is designed to allow merchants to take payments on Android smartphones and Android tablets.  
 
@@ -41,6 +41,9 @@ options:
         dependencies
 
         i.  compile project(':remote-pay-android-connector')
+        
+    **Note: If you run the remote-pay-android-example-pos application you should keep the device in landscape orientation.
+    If you rotate the device the app could crash.  The app was originally written for landscape POS stations.**
 
 2)  Clone the remote-pay-android-hackathon repository and copy the
     necessary modules into your own android project
