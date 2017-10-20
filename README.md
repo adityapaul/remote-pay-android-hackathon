@@ -24,7 +24,7 @@ Integrating with the Universal SDK enables merchants to take advantage of the Cl
 
 To integrate our Android Universal SDK in your project, you have two options:
 
-- EASIER WAY: Clone the remote-pay-android-hackathon repository and add a new module for your app into the project
+1. EASIER WAY: Clone the remote-pay-android-hackathon repository and add a new module for your app into the project
 
   - Clone remote-pay-android-hackathon
 
@@ -41,41 +41,35 @@ To integrate our Android Universal SDK in your project, you have two options:
     **Note: If you run the remote-pay-android-example-pos application you should keep the device in landscape orientation.
     If you rotate the device the app could crash.  The app was originally written for landscape POS stations.**
 
-2)  Clone the remote-pay-android-hackathon repository and copy the
-    necessary modules into your own android project
+2) Clone the remote-pay-android-hackathon repository and copy the necessary modules into your own android project
 
-    a.  Create or open your own project
+  - Create or open your own project
 
-    b.  Clone remote-pay-android-hackathon into a separate project
+  - Clone remote-pay-android-hackathon into a separate project
 
-    c.  Using Finder (Finder/Explorer) copy the following folders/module
-        into your own project
+  - Using Finder (Finder/Explorer) copy the following folders/module into your own project
 
-        i.  clover-aroid-sdk
+    - clover-aroid-sdk
 
-        ii. clover-remote-interface
+    - clover-remote-interface
 
-        iii. data
+    - data
 
-        iv. domain
+    - domain
 
-        v.  reader
+    - reader
 
-        vi. remote-pay-android-connector
+    - remote-pay-android-connector
 
-        vii. roam
+    - roam
 
-    d.  Update your settings.gradle file to include the newly added
-        modules. It will look something like the following
+  - Update your settings.gradle file to include the newly added modules. It will look something like the following
 
-        i.  include ':remote-pay-android-connector', ':reader', ':data',
-            ':domain', ':roam', ':clover-android-sdk',
-            ':clover-remote-interface',
-            ':<your\_app\_module\_here>'
+    - include ':remote-pay-android-connector', ':reader', ':data', ':domain', ':roam', ':clover-android-sdk', ':clover-remote-interface', ':<your\_app\_module\_here>'
 
-    e.  In your project’s build.gradle file under buildscript, make the
-        following changes
+  - In your project’s build.gradle file under buildscript, make the following changes
 
+```
         buildscript {
           repositories {
           mavenCentral()
@@ -90,11 +84,13 @@ To integrate our Android Universal SDK in your project, you have two options:
           classpath mavenPlugin
           classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.10.0'
         }
+```
 
-    f.  In your app module’s build.gradle file, add the following line under dependencies
+  - In your app module’s build.gradle file, add the following line under dependencies
+```
+      i.  compile project(':remote-pay-android-connector')
 
-        i.  compile project(':remote-pay-android-connector')
-
+```
 ***Use Clover UniversalSDK in your app***
 
 Use the following in your app
