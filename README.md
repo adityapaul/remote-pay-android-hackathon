@@ -81,35 +81,21 @@ options:
         following changes
 
         buildscript {
-
-        repositories {
-
-        mavenCentral()
-
-        jcenter()
-
+          repositories {
+          mavenCentral()
+          jcenter()
         }
 
-        def mavenPlugin =
-        “com.github.dcendents:android-maven-gradle-plugin:1.5”
+        def mavenPlugin = "com.github.dcendents:android-maven-gradle-plugin:1.5"
 
         dependencies {
-
-        classpath ‘com.android.tools.build:gradle:2.3.3’
-
-        classpath “io.realm:realm-gradle-plugin:3.3.1"
-
-        classpath mavenPlugin
-
-        classpath
-        ‘io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.10.0’
-
+          classpath 'com.android.tools.build:gradle:2.3.3'
+          classpath 'io.realm:realm-gradle-plugin:3.3.1'
+          classpath mavenPlugin
+         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.10.0'
         }
 
-        }
-
-    f.  In your app module’s build.gradle file, add the following line
-        under dependencies
+    f.  In your app module’s build.gradle file, add the following line under dependencies
 
         i.  compile project(':remote-pay-android-connector')
 
