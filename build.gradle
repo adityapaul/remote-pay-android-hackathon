@@ -1,0 +1,22 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+
+  def mavenPlugin = "com.github.dcendents:android-maven-gradle-plugin:1.5"
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.3.3'
+    classpath "io.realm:realm-gradle-plugin:3.3.1"
+
+    classpath mavenPlugin
+    classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.10.0'
+  }
+}
+allprojects {
+  repositories {
+    jcenter()
+  }
+}

@@ -1,0 +1,1 @@
+include ':remote-pay-android-connector', ':remote-pay-android-example-pos', ':reader', ':data', ':domain', ':roam', ':clover-android-sdk', ':clover-remote-interface'
