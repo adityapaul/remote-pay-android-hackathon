@@ -22,25 +22,21 @@ Integrating with the Universal SDK enables merchants to take advantage of the Cl
 
 ***Integration:***
 
-To integrate our Android Universal SDK in your project, you have two
-options:
+To integrate our Android Universal SDK in your project, you have two options:
 
-1)  Clone the remote-pay-android-hackathon repository and add a new
-    module for your app into the project --- EASIER WAY
+- EASIER WAY: Clone the remote-pay-android-hackathon repository and add a new module for your app into the project
 
-    a.  Clone remote-pay-android-hackathon
+  - Clone remote-pay-android-hackathon
 
-    b.  Create a new module in the project
+  - Create a new module in the project
 
-    c.  When prompted, select Phone & Tablet Module
+  - When prompted, select Phone & Tablet Module
 
-    d.  Android Studio should automatically add your new module in the
-        settings.gradle file. If not, add the module that you created
+  - Android Studio should automatically add your new module in the settings.gradle file. If not, add the module that you created
 
-    e.  In your module’s build.gradle file, add the following line under
-        dependencies
+  - In your module’s build.gradle file, add the following line under dependencies
 
-        i.  compile project(':remote-pay-android-connector')
+    compile project(':remote-pay-android-connector')
         
     **Note: If you run the remote-pay-android-example-pos application you should keep the device in landscape orientation.
     If you rotate the device the app could crash.  The app was originally written for landscape POS stations.**
