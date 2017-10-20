@@ -111,158 +111,99 @@ ICloverGoConnectorListener ccGoListener;
 
 ccGoListener = new new ICloverGoConnectorListener() {
 
-public void…
-
-…
-
+public void...
+...
 }
 
 *\*\*\*\* Below are the most useful and important \*\*\*\**
 
 ccGoListener = new ICloverGoConnectorListener() {
 
-public void onDeviceDisconnected(ReaderInfo readerInfo) {
+  public void onDeviceDisconnected(ReaderInfo readerInfo) {}
 
+  public void onDeviceConnected() {}
+
+  public void onCloverGoDeviceActivity(final CloverDeviceEvent deviceEvent) {
+
+    switch (deviceEvent.getEventState()) {
+
+      case CARD\_SWIPED:
+      break;
+
+      case CARD\_TAPPED:
+      break;
+
+      case CANCEL\_CARD\_READ:
+      break;
+
+      case EMV\_COMPLETE\_DATA:
+      break;
+
+      case CARD\_INSERTED\_MSG:
+      break;
+
+      case CARD\_REMOVED\_MSG:
+      break;
+
+      case PLEASE\_SEE\_PHONE\_MSG:
+      break;
+
+      case READER\_READY:
+      break;
+    }
+  }
+
+  public void onDeviceDiscovered(ReaderInfo readerInfo) {}
+
+  public void onAidMatch(final List<CardApplicationIdentifier>applicationIdentifiers, final AidSelection aidSelection) {}
+
+  public void onDeviceReady(final MerchantInfo merchantInfo) {}
+
+  public void onDeviceError(CloverDeviceErrorEvent deviceErrorEvent) {
+
+  switch (deviceErrorEvent.getErrorType()) {
+
+    case READER\_ERROR:
+    case CARD\_ERROR:
+    case READER\_TIMEOUT:
+    case COMMUNICATION\_ERROR:
+    case LOW\_BATTERY:
+    case PARTIAL\_AUTH\_REJECTED:
+    case DUPLICATE\_TRANSACTION\_REJECTED:
+    
+    // notify user
+    break;
+
+    case MULTIPLE\_CONTACT\_LESS\_CARD\_DETECTED\_ERROR:
+    case CONTACT\_LESS\_FAILED\_TRY\_CONTACT\_ERROR:
+    case EMV\_CARD\_SWIPED\_ERROR:
+    case DIP\_FAILED\_ALL\_ATTEMPTS\_ERROR:
+    case DIP\_FAILED\_ERROR:
+    case SWIPE\_FAILED\_ERROR:
+    
+    // show progress to user
+    break;
+  }
 }
 
-public void onDeviceConnected() {
+public void onAuthResponse(final AuthResponse response) {}
 
-}
+public void onPreAuthResponse(final PreAuthResponse response) {}
 
-public void onCloverGoDeviceActivity(final CloverDeviceEvent
-deviceEvent) {
+public void onTipAdjustAuthResponse(TipAdjustAuthResponse response) {}
 
-switch (deviceEvent.getEventState()) {
+public void onCapturePreAuthResponse(CapturePreAuthResponse response) {}
 
-case CARD\_SWIPED:
+public void onConfirmPaymentRequest(ConfirmPaymentRequest request) {}
 
-break;
+public void onSaleResponse(final SaleResponse response) {}
 
-case CARD\_TAPPED:
+public void onRefundPaymentResponse(final RefundPaymentResponse response) {}
 
-break;
+public void onTipAdded(TipAddedMessage message) {}
 
-case CANCEL\_CARD\_READ:
+public void onVoidPaymentResponse(VoidPaymentResponse response) {}
 
-break;
-
-case EMV\_COMPLETE\_DATA:
-
-break;
-
-case CARD\_INSERTED\_MSG:
-
-break;
-
-case CARD\_REMOVED\_MSG:
-
-break;
-
-case PLEASE\_SEE\_PHONE\_MSG:
-
-break;
-
-case READER\_READY:
-
-break;
-
-}
-
-}
-
-public void onDeviceDiscovered(ReaderInfo readerInfo) {
-
-}
-
-public void onAidMatch(final List&lt;CardApplicationIdentifier&gt;
-applicationIdentifiers, final AidSelection aidSelection) {
-
-}
-
-public void onDeviceReady(final MerchantInfo merchantInfo) {
-
-}
-
-public void onDeviceError(CloverDeviceErrorEvent deviceErrorEvent) {
-
-switch (deviceErrorEvent.getErrorType()) {
-
-case READER\_ERROR:
-
-case CARD\_ERROR:
-
-case READER\_TIMEOUT:
-
-case COMMUNICATION\_ERROR:
-
-case LOW\_BATTERY:
-
-case PARTIAL\_AUTH\_REJECTED:
-
-case DUPLICATE\_TRANSACTION\_REJECTED:
-
-// notify user
-
-break;
-
-case MULTIPLE\_CONTACT\_LESS\_CARD\_DETECTED\_ERROR:
-
-case CONTACT\_LESS\_FAILED\_TRY\_CONTACT\_ERROR:
-
-case EMV\_CARD\_SWIPED\_ERROR:
-
-case DIP\_FAILED\_ALL\_ATTEMPTS\_ERROR:
-
-case DIP\_FAILED\_ERROR:
-
-case SWIPE\_FAILED\_ERROR:
-
-// show progress to user
-
-break;
-
-}
-
-}
-
-public void onAuthResponse(final AuthResponse response) {
-
-}
-
-public void onPreAuthResponse(final PreAuthResponse response) {
-
-}
-
-public void onTipAdjustAuthResponse(TipAdjustAuthResponse response) {
-
-}
-
-public void onCapturePreAuthResponse(CapturePreAuthResponse response) {
-
-}
-
-public void onConfirmPaymentRequest(ConfirmPaymentRequest request) {
-
-}
-
-public void onSaleResponse(final SaleResponse response) {
-
-}
-
-public void onRefundPaymentResponse(final RefundPaymentResponse
-response) {
-
-}
-
-public void onTipAdded(TipAddedMessage message) {
-
-}
-
-public void onVoidPaymentResponse(VoidPaymentResponse response) {
-
-}
-
-};
 
 ***Initialize SDK with 450 (Bluetooth) Reader***
 
