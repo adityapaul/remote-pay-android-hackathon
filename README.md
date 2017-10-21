@@ -64,9 +64,9 @@ To integrate our Android Universal SDK in your project, you have two options:
     - roam
 
   - Update your settings.gradle file to include the newly added modules. It will look something like the following
-
+```
     - include ':remote-pay-android-connector', ':reader', ':data', ':domain', ':roam', ':clover-android-sdk', ':clover-remote-interface', ':<your\_app\_module\_here>'
-
+```
   - In your project’s build.gradle file under buildscript, make the following changes
 
 ```
