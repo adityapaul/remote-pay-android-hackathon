@@ -176,16 +176,16 @@ public class CloverGoConnectorImpl {
     String url;
     switch (env) {
       case LIVE:
-        url = "https://api.payeezy.com/clovergosdk/v1/";
+        url = "https://api.payeezy.com/clovergosdk/v2/";
         break;
       case SANDBOX:
-        url = "https://api-cert.payeezy.com/clovergosdk/v1/";
+        url = "https://api-cert.payeezy.com/clovergosdk/v2/";
         break;
       case SANDBOX_DEV:
-        url = "https://api-cert.payeezy.com/clovergosdk/v1/";
+        url = "https://api-cert.payeezy.com/clovergosdk/v2/";
         break;
       default: // DEMO is default
-        url = "https://api-cat.payeezy.com/clovergosdk/v1/";
+        url = "https://api-cat.payeezy.com/clovergosdk/v2/";
     }
 
 

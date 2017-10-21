@@ -433,7 +433,7 @@ public class StartupActivity extends Activity {
     if (GO_ENV == CloverGoDeviceConfiguration.ENV.LIVE) {
       mGoApiKey = "mexbZJX5D3fa5kje1dZmrJVKOyAF9w8F";
       mGoSecret = "6hak16ff8e76r4565ab988f5d986a911e36f0f2347e3fv3eb719478c98e89io0";
-      mGoAccessToken = "dd18d9a6-4bea-47e3-7d40-3ab8b0d61c29";
+      mGoAccessToken = ""; // ask at the clover booth for an access token
 
       mOAuthClientId = "K66BM82VZ4HAM";//PROD - CloverSDKDemoApp App ID
       mOAuthUrl = "https://clover.com/oauth/authorize?client_id=" + mOAuthClientId + "&response_type=code";
