@@ -41,7 +41,7 @@ To integrate our Android Universal SDK in your project, you have two options:
     **Note: If you run the remote-pay-android-example-pos application you should keep the device in landscape orientation.
     If you rotate the device the app could crash.  The app was originally written for landscape POS stations.**
 
-2) Clone the remote-pay-android-hackathon repository and copy the necessary modules into your own android project
+2. Clone the remote-pay-android-hackathon repository and copy the necessary modules into your own android project
 
   - Create or open your own project
 
@@ -65,30 +65,30 @@ To integrate our Android Universal SDK in your project, you have two options:
 
   - Update your settings.gradle file to include the newly added modules. It will look something like the following
 ```
-    - include ':remote-pay-android-connector', ':reader', ':data', ':domain', ':roam', ':clover-android-sdk', ':clover-remote-interface', ':<your\_app\_module\_here>'
+      include ':remote-pay-android-connector', ':reader', ':data', ':domain', ':roam', ':clover-android-sdk', ':clover-remote-interface', ':<your\_app\_module\_here>'
 ```
   - In your project’s build.gradle file under buildscript, make the following changes
 
 ```
-        buildscript {
-          repositories {
-          mavenCentral()
-          jcenter()
-        }
+      buildscript {
+        repositories {
+        mavenCentral()
+        jcenter()
+      }
 
-        def mavenPlugin = "com.github.dcendents:android-maven-gradle-plugin:1.5"
+      def mavenPlugin = "com.github.dcendents:android-maven-gradle-plugin:1.5"
 
-        dependencies {
-          classpath 'com.android.tools.build:gradle:2.3.3'
-          classpath 'io.realm:realm-gradle-plugin:3.3.1'
-          classpath mavenPlugin
-          classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.10.0'
-        }
+      dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'io.realm:realm-gradle-plugin:3.3.1'
+        classpath mavenPlugin
+        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.10.0'
+      }
 ```
 
   - In your app module’s build.gradle file, add the following line under dependencies
 ```
-      i.  compile project(':remote-pay-android-connector')
+      compile project(':remote-pay-android-connector')
 
 ```
 ***Use Clover UniversalSDK in your app***
@@ -100,15 +100,15 @@ ICloverGoConnector cloverGo450Connector;
 ICloverGoConnectorListener ccGoListener;
 
 ***Create and implement** **ICloverGoConnectorListener***
-
+```
 ccGoListener = new new ICloverGoConnectorListener() {
 
 public void...
 ...
 }
-
+```
 *\*\*\*\* Below are the most useful and important \*\*\*\**
-
+```
 ccGoListener = new ICloverGoConnectorListener() {
 
   public void onDeviceDisconnected(ReaderInfo readerInfo) {}
@@ -195,7 +195,7 @@ public void onRefundPaymentResponse(final RefundPaymentResponse response) {}
 public void onTipAdded(TipAddedMessage message) {}
 
 public void onVoidPaymentResponse(VoidPaymentResponse response) {}
-
+```
 
 ***Initialize SDK with 450 (Bluetooth) Reader***
 
@@ -210,12 +210,8 @@ Parameters (Required) to initialize SDK:
 4.  secret
 
 5.  app ID
-
-CloverGoDeviceConfiguration config = new
-CloverGoDeviceConfiguration.Builder(getApplicationContext(),
-accessToken, goEnv, apiKey, secret, appId).
-deviceType(ReaderInfo.ReaderType.RP450). allowAutoConnect(false).
-build();
+```
+CloverGoDeviceConfiguration config = new CloverGoDeviceConfiguration.Builder(getApplicationContext(), accessToken, goEnv, apiKey, secret, appId).deviceType(ReaderInfo.ReaderType.RP450). allowAutoConnect(false).build();
 
 ICloverGoConnector cloverGo450Connector = (CloverGoConnector)
 ConnectorFactory.createCloverConnector(config);
@@ -223,9 +219,9 @@ ConnectorFactory.createCloverConnector(config);
 cloverGo450Connector.addCloverGoConnectorListener(ccGoListener);
 
 cloverGo450Connector.initializeConnection();
-
+```
 ***Making Sale transaction***
-
+```
 SaleRequest request = new
 SaleRequest(store.getCurrentOrder().getTotal(), externalPaymentID);
 
@@ -260,7 +256,7 @@ request.setAutoAcceptPaymentConfirmations(store.getAutomaticPaymentConfirmation(
 request.setAutoAcceptSignature(store.getAutomaticSignatureConfirmation());
 
 cloverGo450Connector.sale(request);
-
+```
 Required parameters for sale transaction:
 
 1.  amount – which will be total amount you want to make a transaction
@@ -302,9 +298,8 @@ Optional parameters:-
 16. tipMode
 
 ***Making Auth transaction***
-
-AuthRequest request = new
-AuthRequest(store.getCurrentOrder().getTotal(), externalPaymentID);
+```
+AuthRequest request = new AuthRequest(store.getCurrentOrder().getTotal(), externalPaymentID);
 
 request.setCardEntryMethods(store.getCardEntryMethods());
 
@@ -333,7 +328,7 @@ request.setAutoAcceptPaymentConfirmations(store.getAutomaticPaymentConfirmation(
 request.setAutoAcceptSignature(store.getAutomaticSignatureConfirmation());
 
 cloverConnector.auth(request);
-
+```
 Required parameters for auth transaction:
 
 1.  amount – which will be total amount you want to make a transaction
